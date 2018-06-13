@@ -7,7 +7,13 @@
         Dim codigoingresado As Byte
         Dim totalgeneral As Decimal
         Do
-            codigoingresado = Comprobar()
+            Do
+                Console.Write("Ingrese codigo entre 1 y 4 y cero para salir: ")
+                codigoingresado = Console.ReadLine
+                If codigoingresado < 0 Or codigoingresado > 4 Then
+                    Console.WriteLine("El valor ingresado es incorrecto")
+                End If
+            Loop While codigoingresado > 4 And codigoingresado <= 0
 
             If codigoingresado <> 0 Then
                 Console.WriteLine("Nombre de producto: " & nombre(codigoingresado - 1))
@@ -19,19 +25,6 @@
                 Console.WriteLine("Total general: " & totalgeneral)
             End If
         Loop Until (codigoingresado = 0)
-
-
+        Console.ReadKey()
     End Sub
-
-    Friend Function Comprobar() As Byte
-        Dim a As Integer = -1
-        While a < 0 Or a > 4
-            Console.Write("Ingrese codigo entre 1 y 4 y cero para salir: ")
-            a = Console.ReadLine()
-            If a < 0 Or a > 4 Then
-                Console.WriteLine("El valor ingresado es incorrecto")
-            End If
-        End While
-        Return (a)
-    End Function
 End Module
