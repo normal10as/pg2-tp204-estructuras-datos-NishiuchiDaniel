@@ -13,6 +13,7 @@
         dominios.Add("Bolivia", "bo")
 
         Do
+            Console.WriteLine("Hay " & dominios.Count & " dominios cargados.")
             Console.WriteLine("Seleccione operacion que desea realizar: " & vbLf & "1-Agregar un dominio" & vbLf & "2-Editar un dominio" & vbLf & "3-Eliminar un dominio" & vbLf & "4-Buscar un dominio")
             seleccion = Console.ReadLine()
             Select Case seleccion
@@ -28,6 +29,7 @@
                     Console.WriteLine("Opcion invalida")
             End Select
             Console.WriteLine("-----------------------------------------")
+
         Loop Until asc(seleccion) = 0
     End Sub
 
