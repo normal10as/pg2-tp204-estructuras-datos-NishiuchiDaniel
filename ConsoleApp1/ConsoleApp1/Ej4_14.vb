@@ -11,15 +11,11 @@
         precios.Add(7, 32.15)
         precios.Add(10, 100)
         Do
-
-            Console.WriteLine("Clave" & vbTab & "Descripcion" & vbTab & "Precio")
-            For Each producto In productos
-                Console.WriteLine(producto.Key & vbTab & producto.Value & vbTab & vbTab & precios(producto.Key))
-            Next
             Console.WriteLine("Elija una opcion")
             Console.WriteLine("1-Agregar un producto")
             Console.WriteLine("2-Editar un producto")
             Console.WriteLine("3-Borrar un producto")
+            Console.WriteLine("4-Listar por nombre")
             Console.WriteLine("0-Salir")
             opcion = Console.ReadLine
             Select Case opcion
@@ -29,6 +25,8 @@
                     editar(productos, precios)
                 Case 3
                     borrar(productos, precios)
+                Case 4
+                    listar(productos, precios)
                 Case 0
                     Exit Do
                 Case Else
@@ -87,5 +85,25 @@
         Else
             Console.WriteLine("La clave no existe")
         End If
+    End Sub
+
+    Private Sub listar(ByRef productos As Dictionary(Of Integer, String), ByRef precios As Dictionary(Of Integer, Decimal))
+
+        Dim productos_alfabetico As New ArrayList
+
+        For Each producto In productos
+            productos_alfabetico.Add(producto.Value)
+        Next
+        productos_alfabetico.Sort()
+
+        Console.WriteLine("Clave" & vbTab & "Descripcion" & vbTab & "Precio")
+        For i As Byte = 0 To productos_alfabetico.Count - 1
+            For Each producto In productos
+                If producto.Value = (productos_alfabetico(i).ToString) Then
+                    Console.WriteLine(producto.Key & vbTab & producto.Value & vbTab & vbTab & precios(producto.Key))
+                    Exit For
+                End If
+            Next
+        Next
     End Sub
 End Module
