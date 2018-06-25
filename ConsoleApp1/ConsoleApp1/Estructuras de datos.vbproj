@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DB2F6665-BC5F-4A7E-8177-3D5F1A1D353E}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>ConsoleApp1.Ej4_6</StartupObject>
+    <StartupObject>ConsoleApp1.Ej4_14</StartupObject>
     <RootNamespace>ConsoleApp1</RootNamespace>
     <AssemblyName>ConsoleApp1</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -68,12 +68,21 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ej4_10.vb" />
+    <Compile Include="Ej4_11.vb" />
+    <Compile Include="Ej4_12.vb" />
+    <Compile Include="Ej4_12_2.vb" />
+    <Compile Include="Ej4_13.vb" />
+    <Compile Include="Ej4_14.vb" />
     <Compile Include="Ej4_6.vb" />
     <Compile Include="Ej4_1.vb" />
     <Compile Include="Ej4_2.vb" />
     <Compile Include="Ej4_3.vb" />
     <Compile Include="Ej4_4.vb" />
     <Compile Include="Ej4_5.vb" />
+    <Compile Include="Ej4_7.vb" />
+    <Compile Include="Ej4_8.vb" />
+    <Compile Include="Ej4_9.vb" />
     <Compile Include="EjemploCollection.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

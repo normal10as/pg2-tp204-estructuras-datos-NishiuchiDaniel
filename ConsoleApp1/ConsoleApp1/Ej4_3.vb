@@ -14,6 +14,7 @@
                 Console.WriteLine("Cantidad Incorrecta")
             End If
         Loop Until bandera
+
         Do
             Console.Write("Ingrese cantidad de notas (maximo 4): ")
             cantidadnotas = Console.ReadLine()
@@ -22,10 +23,10 @@
                 Console.WriteLine("Cantidad Incorrecta")
             End If
         Loop Until bandera
-        'Inicializacion de arrays'
+
         Dim alumnos(cantidadalumnos - 1) As String
         Dim notas(cantidadalumnos - 1, cantidadnotas) As Single
-        'Carga de datos'
+
         For i = 0 To cantidadalumnos - 1
             comprobarNombre("Ingrese nombre del alumno: ", i, alumnos)
             For j = 0 To cantidadnotas - 1
@@ -34,6 +35,7 @@
         Next
         promedio(notas, alumnos, cantidadalumnos, cantidadnotas)
         mejor(notas, alumnos, cantidadalumnos, cantidadnotas, mejoralumno)
+
         Console.WriteLine("Los mejores alumnos son: ")
         For Each i In mejoralumno
             Console.WriteLine(i)
@@ -48,7 +50,7 @@
         End If
         Return x
     End Function
-    Private Sub comprobarNota(ByVal msj As String, ByVal i As Byte, ByVal j As Byte, ByRef notas As Array)
+    Private Sub comprobarNota(ByVal msj As String, ByVal i As Byte, ByVal j As Byte, ByRef notas(,) As Single)
         Do
             Console.Write(msj)
             notas(i, j) = Console.ReadLine()
@@ -78,7 +80,7 @@
             End If
         Loop While valor = True
     End Sub
-    Private Sub promedio(ByVal notas As Array, ByVal alumnos() As String, ByVal cantidadalumnos As Byte, ByVal cantidadnotas As Byte)
+    Private Sub promedio(ByVal notas(,) As Single, ByVal alumnos() As String, ByVal cantidadalumnos As Byte, ByVal cantidadnotas As Byte)
         Dim promedio As Double
         For i = 0 To cantidadalumnos - 1
             promedio = 0
@@ -99,7 +101,7 @@
             Return ("  No aprobo")
         End If
     End Function
-    Private Sub mejor(ByVal notas As Array, ByVal alumnos() As String, ByVal cantidadalumnos As Byte, ByVal cantidadnotas As Byte, ByRef mejoralumno() As String)
+    Private Sub mejor(ByVal notas(,) As Single, ByVal alumnos() As String, ByVal cantidadalumnos As Byte, ByVal cantidadnotas As Byte, ByRef mejoralumno() As String)
         Dim mayor As Double = 0
         Dim contador As Byte = 1
         For i = 0 To cantidadalumnos - 1
